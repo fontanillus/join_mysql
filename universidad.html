@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicios Universidad · Ejercicios prácticos de MySQL</title>
+  <meta name="description" content="Ejercicios resueltos de MySQL sobre la base de datos universidad: creación de tablas, claves foráneas, inserciones y consultas con INNER, LEFT y RIGHT JOIN." />
+  <meta name="author" content="Formación SOC · Bases de Datos" />
+  <meta property="og:title" content="Ejercicios Universidad · MySQL" />
+  <meta property="og:description" content="Ejercicios resueltos con INNER JOIN, LEFT JOIN y RIGHT JOIN sobre la base de datos universidad." />
+  <meta property="og:type" content="article" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+  <link rel="stylesheet" href="assets/css/custom.css" />
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🐬&lt;/text&gt;&lt;/svg&gt;" />
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
+  <a href="#contenido" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Cabecera -->
+  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6" aria-label="Navegación principal">
+      <a href="index.html" class="flex items-center gap-2.5 font-bold text-slate-900">
+        <span class="grid h-9 w-9 place-items-center rounded-lg bg-indigo-600 text-white" aria-hidden="true">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" /></svg>
+        </span>
+        <span class="hidden sm:inline">Ejercicios MySQL</span>
+        <span class="sm:hidden">MySQL</span>
+      </a>
+      <ul class="flex items-center gap-1 text-sm font-semibold">
+        <li><a href="index.html" class="rounded-lg px-3 py-2 text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Inicio</a></li>
+        <li><a href="universidad.html" aria-current="page" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700">Universidad</a></li>
+        <li><span class="cursor-not-allowed rounded-lg px-3 py-2 text-slate-400" title="Próximamente">Nómina</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido" class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <!-- Migas de pan -->
+    <nav aria-label="Migas de pan" class="mb-6 text-sm text-slate-500">
+      <ol class="flex items-center gap-2">
+        <li><a href="index.html" class="transition hover:text-indigo-700">Inicio</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" class="font-semibold text-slate-900">Universidad</li>
+      </ol>
+    </nav>
+
+    <!-- Cabecera del bloque -->
+    <section class="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 p-6 text-white sm:p-10" aria-labelledby="bloque-titulo">
+      <div class="flex flex-wrap items-start justify-between gap-6">
+        <div class="max-w-2xl">
+          <p class="text-xs font-semibold uppercase tracking-widest text-indigo-300">Bloque 1 · Disponible</p>
+          <h1 id="bloque-titulo" class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">🎓 Ejercicios Universidad</h1>
+          <p class="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">
+            Base de datos académica con carreras, materias, estudiantes y profesores. Se practica la creación de tablas,
+            claves foráneas, inserción de datos y los distintos tipos de <code class="rounded bg-white/10 px-1.5 py-0.5 font-mono text-sm text-indigo-300">JOIN</code>.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <a href="sql/universidad.sql" download class="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-900/40 transition hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+            Descargar universidad.sql
+          </a>
+          <p class="text-center text-xs text-slate-400"><span id="exercise-count">—</span> ejercicios resueltos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="mt-8" aria-label="Filtrar ejercicios por categoría">
+      <h2 class="sr-only">Filtros</h2>
+      <div id="filter-bar" class="flex flex-wrap gap-2" role="group" aria-label="Categorías"></div>
+    </section>
+
+    <!-- Contenido: índice + ejercicios -->
+    <div class="mt-8 grid gap-8 lg:grid-cols-[280px_1fr]">
+      <!-- Índice lateral -->
+      <aside class="hidden lg:block" aria-label="Índice de ejercicios">
+        <nav class="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <h2 class="px-3 pb-2 text-xs font-bold uppercase tracking-widest text-slate-400">Índice de ejercicios</h2>
+          <ul id="toc-list" class="space-y-0.5"></ul>
+        </nav>
+      </aside>
+
+      <!-- Lista de ejercicios -->
+      <section id="exercise-list" class="min-w-0 space-y-6" aria-label="Ejercicios resueltos"></section>
+    </div>
+  </main>
+
+  <footer class="mt-16 border-t border-slate-200 bg-slate-900 text-slate-400">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-8 text-sm sm:flex-row sm:px-6">
+      <p>Ejercicios prácticos de MySQL · Formación SOC · Bases de Datos</p>
+      <a href="index.html" class="transition hover:text-indigo-300">← Volver al inicio</a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script src="assets/js/data/universidad.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    initExercisePage(window.EXERCISES_UNIVERSIDAD);
+  </script>
+</body>
+</html>

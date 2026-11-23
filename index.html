@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicios prácticos de MySQL · Formación SOC</title>
+  <meta name="description" content="Repositorio educativo de ejercicios prácticos de MySQL del curso SOC de Bases de Datos: creación de tablas, claves foráneas y consultas con JOIN." />
+  <meta name="author" content="Formación SOC · Bases de Datos" />
+  <meta property="og:title" content="Ejercicios prácticos de MySQL" />
+  <meta property="og:description" content="Ejercicios resueltos de MySQL del curso SOC de Bases de Datos, con código SQL comentado y descargable." />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/custom.css" />
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🐬&lt;/text&gt;&lt;/svg&gt;" />
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
+  <a href="#contenido" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Cabecera -->
+  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6" aria-label="Navegación principal">
+      <a href="index.html" class="flex items-center gap-2.5 font-bold text-slate-900">
+        <span class="grid h-9 w-9 place-items-center rounded-lg bg-indigo-600 text-white" aria-hidden="true">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" /></svg>
+        </span>
+        <span class="hidden sm:inline">Ejercicios MySQL</span>
+        <span class="sm:hidden">MySQL</span>
+      </a>
+      <ul class="flex items-center gap-1 text-sm font-semibold">
+        <li><a href="index.html" aria-current="page" class="rounded-lg bg-indigo-50 px-3 py-2 text-indigo-700">Inicio</a></li>
+        <li><a href="universidad.html" class="rounded-lg px-3 py-2 text-slate-600 transition hover:bg-slate-100 hover:text-slate-900">Universidad</a></li>
+        <li><span class="cursor-not-allowed rounded-lg px-3 py-2 text-slate-400" title="Próximamente">Nómina</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 text-white">
+      <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+        <p class="inline-flex items-center gap-2 rounded-full border border-indigo-400/40 bg-indigo-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-indigo-300">
+          Formación SOC · Bases de Datos
+        </p>
+        <h1 class="mt-6 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">
+          Ejercicios prácticos de <span class="text-indigo-400">MySQL</span>
+        </h1>
+        <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+          Repositorio de aprendizaje con los ejercicios resueltos durante el curso: creación de bases de datos y tablas,
+          claves foráneas, inserción de datos y consultas con <code class="rounded bg-white/10 px-1.5 py-0.5 font-mono text-sm text-indigo-300">JOIN</code>.
+          Cada bloque incluye el código SQL comentado, listo para copiar y descargar.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="universidad.html" class="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-900/40 transition hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300">
+            Empezar con Universidad
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3" /></svg>
+          </a>
+          <a href="sql/universidad.sql" download class="inline-flex items-center gap-2 rounded-lg border border-indigo-400/50 bg-indigo-500/10 px-5 py-3 text-sm font-semibold text-indigo-200 transition hover:bg-indigo-500/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+            Descargar universidad.sql
+          </a>
+          <a href="#bloques" class="inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300">
+            Ver todos los bloques
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloques de ejercicios -->
+    <section id="bloques" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-14 sm:px-6 sm:py-20" aria-labelledby="bloques-titulo">
+      <div class="mb-10 max-w-2xl">
+        <h2 id="bloques-titulo" class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Bloques de ejercicios</h2>
+        <p class="mt-3 text-slate-600">
+          Cada bloque corresponde a una base de datos de práctica. El repositorio crecerá progresivamente con nuevos bloques a medida que avance el curso.
+        </p>
+      </div>
+      <div id="blocks-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+
+    <!-- Metodología -->
+    <section class="border-t border-slate-200 bg-white" aria-labelledby="metodo-titulo">
+      <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
+        <h2 id="metodo-titulo" class="text-2xl font-bold tracking-tight text-slate-900">Cómo está organizado</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-3">
+          <div class="rounded-2xl border border-slate-200 p-6">
+            <span class="grid h-10 w-10 place-items-center rounded-lg bg-indigo-50 text-xl" aria-hidden="true">📋</span>
+            <h3 class="mt-4 font-bold text-slate-900">Enunciado y solución</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Cada ejercicio muestra su objetivo y la solución SQL original con resaltado de sintaxis.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6">
+            <span class="grid h-10 w-10 place-items-center rounded-lg bg-indigo-50 text-xl" aria-hidden="true">⚡</span>
+            <h3 class="mt-4 font-bold text-slate-900">Copiar y practicar</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Botón para copiar cada consulta y descarga del script completo para ejecutarlo en MySQL.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6">
+            <span class="grid h-10 w-10 place-items-center rounded-lg bg-indigo-50 text-xl" aria-hidden="true">🧩</span>
+            <h3 class="mt-4 font-bold text-slate-900">Arquitectura modular</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Los bloques se registran en un archivo de datos, de modo que añadir nuevas bases de datos no requiere tocar el resto de la web.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-slate-900 text-slate-400">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-8 text-sm sm:flex-row sm:px-6">
+      <p>Ejercicios prácticos de MySQL · Formación SOC · Bases de Datos</p>
+      <p>Proyecto educativo publicado con GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data/blocks.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    renderBlocks("blocks-grid");
+  </script>
+</body>
+</html>
