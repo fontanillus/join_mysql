@@ -1,14 +1,9 @@
 /* =========================================================================
-   Ejercicios del bloque Universidad.
+   Ejercicios de JOIN en MySQL con la base de datos Universidad.
    El código SQL se mantiene literal, tal y como figura en sql/universidad.sql.
    Categorías disponibles: "ddl" | "dml" | "join"
    ========================================================================= */
 window.EXERCISES_UNIVERSIDAD = {
-  id: "universidad",
-  titulo: "Ejercicios Universidad",
-  descripcion:
-    "Base de datos académica con carreras, materias, estudiantes y profesores. Se practica la creación de tablas, claves foráneas, inserción de datos y los distintos tipos de JOIN.",
-  sqlFile: "sql/universidad.sql",
   categorias: [
     { id: "ddl", nombre: "DDL · Estructura" },
     { id: "dml", nombre: "DML · Datos" },
